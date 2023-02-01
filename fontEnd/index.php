@@ -69,39 +69,6 @@
 </body>
 
 <script>
-    $(document).ready(function() {
-        $('#table').DataTable({
-            ordering: false,
-            info: false,
-            language: {
-                url: 'DataTables/es-ES.json'
-            },
-            "bAutoWidth": false,
-            processing: true,
-            serverSide: true,
-            sAjaxSource: 'server/serversideBien.php',
-            columnsDefs: [{
-                data: null
-            }],
-
-
-            columnDefs: [{
-                targets: 0,
-                checkboxes: {
-                    selectRow: true
-                }
-            }],
-            select: {
-                style: 'multi'
-            },
-            order: [
-                [1, 'asc']
-            ]
-
-        });
-    });
-</script>
-<script>
     var today = new Date();
 
 
