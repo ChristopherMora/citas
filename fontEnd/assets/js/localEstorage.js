@@ -6,7 +6,7 @@ if (localStorage.getItem("usuario")) {
   let container = document.getElementById("prueba")
   let div = document.createElement("div")
   usaurio.value = element.usuario;
-  container.appendChild(div)
+  container.appendChild(div);
 });
 }else{
 
