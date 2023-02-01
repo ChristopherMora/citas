@@ -3,6 +3,7 @@
 include ('../conexion.php');
 
 $year = date("Y");
+$month = date("m");
 $sql = "SELECT * FROM registros WHERE YEAR(Fecha) = $year";
 $result = mysqli_query($conn, $sql);
 $Numregistrosanual = mysqli_num_rows($result);
