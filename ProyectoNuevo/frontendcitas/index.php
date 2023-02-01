@@ -11,11 +11,11 @@ if (isset($_GET['cerrar_sesion'])) {
 if (isset($_SESSION['rol'])) {
     switch ($_SESSION['rol']) {
         case 1:
-            header('location: inicio.html');
+            header('location: inicio.php');
             break;
 
         case 2:
-            header('location: inicio.html');
+            header('location: inicio.php');
             break;
 
         default:
@@ -40,17 +40,18 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
         $_SESSION['apellido'] = $row[2];
         switch ($rol) {
             case 1:
-                header('location: inicio.html');
+                header('location: inicio.php');
                 break;
 
             case 2:
-                header('location: inicio.html');
+                header('location: inicio.php');
                 break;
             default:
         }
     } else {
         // no existe el usuario
         echo "Nombre de usuario o contraseña incorrecto";
+        
     }
 }
 ?>
