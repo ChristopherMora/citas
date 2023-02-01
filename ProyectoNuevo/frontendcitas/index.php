@@ -1,13 +1,22 @@
 <?php
 
 include ('../conexion.php');
+date_default_timezone_set('America/Mexico_City');
 
-$year = date("Y");
-$month = date("m");
+//coregir que sea con fecha de mexico
+ $month = date("m");
+ '<br>';
+ $year = date("Y");
 $sql = "SELECT * FROM registros WHERE YEAR(Fecha) = $year";
+$sql1 = "SELECT * FROM registros WHERE MONTH(Fecha) = $month";
+
 $result = mysqli_query($conn, $sql);
+$result1 = mysqli_query($conn, $sql1);
 $Numregistrosanual = mysqli_num_rows($result);
+$Numregistrosmensual = mysqli_num_rows($result1);
 echo $Numregistrosanual;
+ "<br>";
+ echo  $Numregistrosmensual;
 mysqli_close($conn);
 
 ?>
@@ -155,7 +164,7 @@ mysqli_close($conn);
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>solicitudes del mes</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>40,000,000</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo $Numregistrosmensual; ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
                                     </div>
@@ -168,7 +177,7 @@ mysqli_close($conn);
                                     <div class="row align-items-center no-gutters">
                                         <div class="col me-2">
                                             <div class="text-uppercase text-success fw-bold text-xs mb-1"><span><span style="color: rgb(159, 34, 65);">solicitudes del año</span></span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span>215,000,000</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo $Numregistrosanual; ?></span></div>
                                         </div>
                                         <div class="col-auto"><i class="far fa-calendar-times fa-2x text-gray-300"></i></div>
                                     </div>
