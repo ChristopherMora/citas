@@ -3352,10 +3352,12 @@ fieldset:disabled .btn {
     opacity: var(--bs-btn-disabled-opacity)
 }
 
+
+/* colores btn primary */
 .btn-primary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #4e73df;
-    --bs-btn-border-color: #4e73df;
+    --bs-btn-bg: #9F2241;
+    --bs-btn-border-color: #9F2241;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #4262be;
     --bs-btn-hover-border-color: #3e5cb2;
@@ -5225,9 +5227,9 @@ fieldset:disabled .btn {
     display: block;
     padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
     font-size: var(--bs-pagination-font-size);
-    color: var(--bs-pagination-color);
+    color: #9F2241;
     text-decoration: none;
-    background-color: #9F2241; 
+    background-color: var(--bs-pagination-bg);
     border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
@@ -5237,10 +5239,10 @@ fieldset:disabled .btn {
         transition: none
     }
 }
-
+/* paginacion */
 .page-link:hover {
     z-index: 2;
-    color: var(--bs-pagination-hover-color);
+    color: #9F2241;
     background-color: var(--bs-pagination-hover-bg);
     border-color: var(--bs-pagination-hover-border-color)
 }
@@ -5256,9 +5258,9 @@ fieldset:disabled .btn {
 .page-link.active,
 .active>.page-link {
     z-index: 3;
-    color: var(--bs-pagination-active-color);
-    background-color: var(--bs-pagination-active-bg);
-    border-color: var(--bs-pagination-active-border-color)
+    color: white;
+    background-color: #9F2241;
+    border-color:#9F2241
 }
 
 .page-link.disabled,
