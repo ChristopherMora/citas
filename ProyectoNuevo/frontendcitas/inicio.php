@@ -29,7 +29,7 @@ include('assets/php/FechasYcontadores.php');
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="solicitud.html"><i class="far fa-edit"></i><span class="text-break">Registro de solicitud</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="tabla.html"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tabla.php"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Iniciar sesión</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Registro de usuario</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="perfil.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>

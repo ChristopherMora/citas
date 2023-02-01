@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <!-- tabla DataTable -->
+    <link rel="stylesheet" href="assets/DataTables/DataTables-1.13.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/DataTables/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" src="assets/DataTables/DataTables-1.13.1/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="assets/DataTables/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/DataTables/DataTables-1.13.1/js/dataTables.bootstrap5.js"></script>
 </head>
 
 <body id="page-top">
@@ -27,7 +38,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="solicitud.html"><i class="far fa-edit"></i><span class="text-break">Registro de solicitud</span></a></li>
                     <li class="nav-item"><a class="nav-link active" href="tabla.html"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Iniciar sesión</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php"><i class="far fa-user-circle"></i><span>Iniciar sesión</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Registro de usuario</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="perfil.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
                 </ul>
@@ -138,20 +149,10 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar<select class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
-                                </div>
+                                <div class="col-md-6 text-nowrap">  
                             </div>
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
+                            <div class="table-responsive table mt-2" id="" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="table">
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
@@ -160,99 +161,16 @@
                                             <th>Teléfono</th>
                                             <th>Fecha</th>
                                             <th>Atendió</th>
-                                            <th>Opciones</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                            <td><a class="btn btn-success btn-circle ms-1" role="button"><i class="fas fa-check text-white"></i></a><a class="btn btn-warning btn-circle ms-1" role="button"><i class="fas fa-exclamation-triangle text-white"></i></a><a class="btn btn-danger btn-circle ms-1" role="button"><i class="fas fa-trash text-white"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer(CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09<br></td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12<br></td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13<br></td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07<br></td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02<br></td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash<br></td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03<br></td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr></tr>
-                                        <tr></tr>
+
+
+
                                     </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td><strong>Nombre</strong></td>
-                                            <td><strong>Contacto</strong></td>
-                                            <td><strong>Asunto</strong></td>
-                                            <td><strong>Teléfono</strong></td>
-                                            <td><strong>Fecha</strong></td>
-                                            <td><strong>Atendió</strong></td>
-                                            <td><strong>Opciones</strong></td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 align-self-center">
-                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Mostrando 1 de 10 de 27</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                        <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -264,9 +182,81 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+    <script >
+    $(document).ready(function() {
+    $('#table').DataTable({
+        ordering: false,
+        info: false,
+        language: {
+            url: 'assets/DataTables/es-ES.json'
+        },
+        "bAutoWidth": false,
+        processing: true,
+        serverSide: true,
+        sAjaxSource: 'assets/src/server/serversideBien.php',
+        "columnDefs": [{
+            "targets": -1,
+            "defaultContent": "<div class='row'> <button class='btn btn-warning btn-sm btnEditar col-6' data-toggle='tooltip>< class='material-icons'><i class='bi bi-pencil-square'></i></button><button class='btn btn-danger btn-sm btnEliminar col-6' data-toggle='tooltip>< class='material-icons'><i class='bi bi-trash'></i></button></div></div>",
+        }],
+
+        order: [
+            [1, 'asc']
+        ],
+
+    });
+});
+
+    $(document).on("click", ".btnEditar", function() {
+        fila = $(this).closest("tr");
+        id = fila.find('td:eq(0)').text();
+
+        $.ajax({
+            // url: "seguimiento.php",
+            url: "assets/php/tabla/editr.php",
+            type: "POST",
+            datatype: "json",
+            data: {
+                valor: id
+            },
+
+        }).done(function(msg) {
+            window.location.href = "assets/php/tabla/editr.php?seg=" + id;
+            // window.location.href = "seguimiento.php";
+            // alert("id  "  + id)
+        });
+
+    });
+
+    $(document).on("click", ".btnEliminar", function() {
+        fila = $(this).closest("tr");
+        id = fila.find('td:eq(0)').text();
+
+        $.ajax({
+            url: "assets/php/tabla/EliminarRegistro.php",
+            type: "POST",
+            datatype: "json",
+            data: {
+                eliminar: id
+            },
+        }).done(function(msg) {
+            window.location.href = "tabla.php";
+
+        });
+
+    });
+
+
+
+
+
+    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+    
 </body>
 
 </html>
