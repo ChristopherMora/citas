@@ -1,46 +1,6 @@
-<?php
-date_default_timezone_set('America/Mexico_City');
-include ('../conexion.php');
-
-//coregir que sea con fecha de mexico
-$month = date("m");
- $year = date("Y");
-$sql = "SELECT * FROM registros WHERE YEAR(Fecha) = $year";
-$sql1 = "SELECT * FROM registros WHERE MONTH(Fecha) = $month";
-
-$cantidadVino = "SELECT COUNT(*) as totalVino FROM registros WHERE contacto = 'Vino'";
-$resultVino = mysqli_query($conn, $cantidadVino);
-if (mysqli_num_rows($resultVino) > 0) {
-    $row = mysqli_fetch_assoc($resultVino);
-    echo $visitsVino = $row["totalVino"];
-}
-$cantidadLlamada = "SELECT COUNT(*) as totalLlamada FROM registros WHERE contacto = 'Llamada'";
-$resultLlamada = mysqli_query($conn, $cantidadLlamada);
-if (mysqli_num_rows($resultLlamada) > 0) {
-    $row = mysqli_fetch_assoc($resultLlamada);
-    echo $visitsLlamada = $row["totalLlamada"];
-}
-$cantidadWsp = "SELECT COUNT(*) as totalWsp FROM registros WHERE contacto = 'Whatsapp'";
-$resultWsp = mysqli_query($conn, $cantidadWsp);
-if (mysqli_num_rows($resultWsp) > 0) {
-    $row = mysqli_fetch_assoc($resultWsp);
-    echo $visitsWsp = $row["totalWsp"];
-}
-$cantidadVino = "SELECT COUNT(*) as total FROM registros WHERE contacto = 'Email'";
-$resultVino = mysqli_query($conn, $cantidadVino);
-if (mysqli_num_rows($resultVino) > 0) {
-    $row = mysqli_fetch_assoc($resultVino);
-    echo $visits = $row["total"];
-}
-$result = mysqli_query($conn, $sql);
-$result1 = mysqli_query($conn, $sql1);
-$Numregistrosanual = mysqli_num_rows($result);
-$Numregistrosmensual = mysqli_num_rows($result1);
-
-mysqli_close($conn);
-
+<?php 
+include('assets/php/FechasYcontadores.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;--bs-secondary: #BCA986;--bs-secondary-rgb: 188,169,134;--bs-success: #235B4E;--bs-success-rgb: 35,91,78;--bs-body-color: #53565A;">
 
@@ -212,7 +172,7 @@ mysqli_close($conn);
                                     <h6 class="text-primary fw-bold m-0">TIPOS DE SOLICITUDES DEL AÑO</h6>
                                 </div>
                                 <div class="card-body">
-                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Vino&quot;,&quot;Llamada&quot;,&quot;Whatsapp&quot;,&quot;Email&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Datos&quot;,&quot;backgroundColor&quot;:[&quot;#9f2241&quot;,&quot;#235b4e&quot;,&quot;#bca986&quot;,&quot;rgb(136,139,141)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;40&quot;,&quot;30&quot;,&quot;20&quot;,&quot;10&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas></div>
+                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Vino&quot;,&quot;Llamada&quot;,&quot;Whatsapp&quot;,&quot;Email&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Datos&quot;,&quot;backgroundColor&quot;:[&quot;#9f2241&quot;,&quot;#235b4e&quot;,&quot;#bca986&quot;,&quot;rgb(136,139,141)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;<?php echo $visitsVino ?>&quot;,&quot;<?php echo $visitsLlamada ?>&quot;,&quot;<?php echo $visitsWsp ?>&quot;,&quot;<?php echo $visitsEmail ?>&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas></div>
                                     <div class="text-center small mt-4"><span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;Vino</span><span class="me-2"><i class="fas fa-circle text-success"></i>&nbsp;Llamada</span><span class="me-2"><i class="fas fa-circle text-info" style="border-color: #bca986;color: #bca986;--bs-info: #BCA986;--bs-info-rgb: 188,169,134;"></i>&nbsp;Whatsapp</span><span class="me-2"><i class="fas fa-circle text-primary" style="--bs-primary: #888B8D;--bs-primary-rgb: 136,139,141;"></i>&nbsp;Email</span></div>
                                 </div>
                             </div>
