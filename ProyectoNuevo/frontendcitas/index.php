@@ -11,11 +11,11 @@ if (isset($_GET['cerrar_sesion'])) {
 if (isset($_SESSION['rol'])) {
     switch ($_SESSION['rol']) {
         case 1:
-            header('location: inicio.php');
+            header('location: inicio.html');
             break;
 
         case 2:
-            header('location: inicio.php');
+            header('location: inicio.html');
             break;
 
         default:
@@ -23,8 +23,8 @@ if (isset($_SESSION['rol'])) {
 }
 
 if (isset($_POST['correo']) && isset($_POST['password'])) {
-    $correo = $_POST['correo'];
-    $password = $_POST['password'];
+    echo $correo = $_POST['correo'];
+    echo $password = $_POST['password'];
 
     $db = new Database();
     $query = $db->connect()->prepare('SELECT * FROM usuarios WHERE correo = :correo AND password = :password');
@@ -34,18 +34,17 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
 
     if ($row == true) {
         $rol = $row[5];
-
+        echo 'correcto';
         $_SESSION['rol'] = $rol;
-        $_SESSION['nombre'] =$row[1];
-        $_SESSION['apellido'] =$row[2];
-        $_SESSION['correo'] =$row[3];
+        $_SESSION['nombre'] = $row[1];
+        $_SESSION['apellido'] = $row[2];
         switch ($rol) {
             case 1:
-                header('location: inicio.php');
+                header('location: inicio.html');
                 break;
 
             case 2:
-                header('location: inicio.php');
+                header('location: inicio.html');
                 break;
             default:
         }
@@ -54,7 +53,6 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
         echo "Nombre de usuario o contraseña incorrecto";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +93,7 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input checkRecordar" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Recuérdame</label></div>
                                             </div>
-                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: #9f2241;" onclick="guardarUsuario()" >Acceder</button>
+                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: #9f2241;" onclick="guardarUsuario()">Acceder</button>
                                         <hr>
                                     </form>
                                     <div class="text-center"><a class="small" href="forgot-password.html">¿Olvidaste tu contraseña?</a></div>
