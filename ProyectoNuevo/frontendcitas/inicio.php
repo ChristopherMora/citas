@@ -1,10 +1,13 @@
+<?php 
+include('assets/php/FechasYcontadores.php');
+?>
 <!DOCTYPE html>
 <html lang="en" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;--bs-secondary: #BCA986;--bs-secondary-rgb: 188,169,134;--bs-success: #235B4E;--bs-success-rgb: 35,91,78;--bs-body-color: #53565A;">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
+    <title>Dashboard - Brand</title>
     <link rel="icon" type="image/png" sizes="16x18" href="assets/img/LOGO16.png">
     <link rel="icon" type="image/png" sizes="32x36" href="assets/img/LOGO32.png">
     <link rel="icon" type="image/png" sizes="180x203" href="assets/img/LOGO180.png">
@@ -24,9 +27,9 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="solicitud.html"><i class="far fa-edit"></i><span class="text-break">Registro de solicitud</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="tabla.html"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tabla.php"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Iniciar sesión</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Registro de usuario</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="perfil.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
@@ -123,7 +126,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="perfil.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Perfil</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Salir</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="assets/src/Login/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Salir</a>
                                     </div>
                                 </div>
                             </li>
@@ -131,130 +134,50 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Solicitudes realizadas</h3>
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Información de la solicitud</p>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label class="form-label">Mostrar<select class="d-inline-block form-select form-select-sm">
-                                                <option value="10" selected="">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select>&nbsp;</label></div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Buscar"></label></div>
-                                </div>
-                            </div>
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>Contacto</th>
-                                            <th>Asunto</th>
-                                            <th>Teléfono</th>
-                                            <th>Fecha</th>
-                                            <th>Atendió</th>
-                                            <th>Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                            <td><a class="btn btn-success btn-circle ms-1" role="button"><i class="fas fa-check text-white"></i></a><a class="btn btn-warning btn-circle ms-1" role="button"><i class="fas fa-exclamation-triangle text-white"></i></a><a class="btn btn-danger btn-circle ms-1" role="button"><i class="fas fa-trash text-white"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer(CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09<br></td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12<br></td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13<br></td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07<br></td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02<br></td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash<br></td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03<br></td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr></tr>
-                                        <tr></tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td><strong>Nombre</strong></td>
-                                            <td><strong>Contacto</strong></td>
-                                            <td><strong>Asunto</strong></td>
-                                            <td><strong>Teléfono</strong></td>
-                                            <td><strong>Fecha</strong></td>
-                                            <td><strong>Atendió</strong></td>
-                                            <td><strong>Opciones</strong></td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 align-self-center">
-                                    <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Mostrando 1 de 10 de 27</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
-                                        <ul class="pagination">
-                                            <li class="page-item disabled"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
-                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generar reporte</a>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-primary py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>solicitudes del mes</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo $Numregistrosmensual; ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <div class="card shadow border-start-success py-2">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span><span style="color: rgb(159, 34, 65);">solicitudes del año</span></span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo $Numregistrosanual; ?></span></div>
+                                        </div>
+                                        <div class="col-auto"><i class="far fa-calendar-times fa-2x text-gray-300"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Start: Chart -->
+                    <div class="row">
+                        <div class="col-lg-11 col-xl-4 col-xxl-12 offset-lg-1 offset-xxl-0">
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">TIPOS DE SOLICITUDES DEL AÑO</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Vino&quot;,&quot;Llamada&quot;,&quot;Whatsapp&quot;,&quot;Email&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Datos&quot;,&quot;backgroundColor&quot;:[&quot;#9f2241&quot;,&quot;#235b4e&quot;,&quot;#bca986&quot;,&quot;rgb(136,139,141)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;<?php echo $visitsVino ?>&quot;,&quot;<?php echo $visitsLlamada ?>&quot;,&quot;<?php echo $visitsWsp ?>&quot;,&quot;<?php echo $visitsEmail ?>&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas></div>
+                                    <div class="text-center small mt-4"><span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;Vino</span><span class="me-2"><i class="fas fa-circle text-success"></i>&nbsp;Llamada</span><span class="me-2"><i class="fas fa-circle text-info" style="border-color: #bca986;color: #bca986;--bs-info: #BCA986;--bs-info-rgb: 188,169,134;"></i>&nbsp;Whatsapp</span><span class="me-2"><i class="fas fa-circle text-primary" style="--bs-primary: #888B8D;--bs-primary-rgb: 136,139,141;"></i>&nbsp;Email</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End: Chart -->
                 </div>
             </div>
             <footer class="bg-white sticky-footer">
@@ -266,6 +189,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="assets/js/script.min.js"></script>
 </body>
 

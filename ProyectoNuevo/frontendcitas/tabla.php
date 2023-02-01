@@ -1,13 +1,10 @@
-<?php 
-include('assets/php/FechasYcontadores.php');
-?>
 <!DOCTYPE html>
 <html lang="en" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;--bs-secondary: #BCA986;--bs-secondary-rgb: 188,169,134;--bs-success: #235B4E;--bs-success-rgb: 35,91,78;--bs-body-color: #53565A;">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
+    <title>Table - Brand</title>
     <link rel="icon" type="image/png" sizes="16x18" href="assets/img/LOGO16.png">
     <link rel="icon" type="image/png" sizes="32x36" href="assets/img/LOGO32.png">
     <link rel="icon" type="image/png" sizes="180x203" href="assets/img/LOGO180.png">
@@ -16,6 +13,17 @@ include('assets/php/FechasYcontadores.php');
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <!-- tabla DataTable -->
+    <link rel="stylesheet" href="assets/DataTables/DataTables-1.13.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/DataTables/DataTables-1.13.1/css/dataTables.bootstrap5.min.css">
+    <script type="text/javascript" src="assets/DataTables/DataTables-1.13.1/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="assets/DataTables/DataTables-1.13.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/DataTables/DataTables-1.13.1/js/dataTables.bootstrap5.js"></script>
 </head>
 
 <body id="page-top">
@@ -27,10 +35,10 @@ include('assets/php/FechasYcontadores.php');
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="solicitud.html"><i class="far fa-edit"></i><span class="text-break">Registro de solicitud</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="tabla.html"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Iniciar sesión</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="tabla.html"><i class="fas fa-table"></i><span>Solicitudes realizadas</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php"><i class="far fa-user-circle"></i><span>Iniciar sesión</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>Registro de usuario</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="perfil.html"><i class="fas fa-user"></i><span>Perfil</span></a></li>
                 </ul>
@@ -126,7 +134,7 @@ include('assets/php/FechasYcontadores.php');
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-none d-lg-inline me-2 text-gray-600 small">Valerie Luna</span><img class="border rounded-circle img-profile" src="assets/img/avatars/avatar1.jpeg"></a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="perfil.html"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Perfil</a>
-                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="assets/src/Login/cerrarSesion.php"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Salir</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Salir</a>
                                     </div>
                                 </div>
                             </li>
@@ -134,50 +142,37 @@ include('assets/php/FechasYcontadores.php');
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Dashboard</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generar reporte</a>
+                    <h3 class="text-dark mb-4">Solicitudes realizadas</h3>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <p class="text-primary m-0 fw-bold">Información de la solicitud</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">  
+                            </div>
+                            <div class="table-responsive table mt-2" id="" role="grid" aria-describedby="dataTable_info">
+                                <table class="table my-0" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Contacto</th>
+                                            <th>Asunto</th>
+                                            <th>Teléfono</th>
+                                            <th>Fecha</th>
+                                            <th>Atendió</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-primary py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>solicitudes del mes</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo $Numregistrosmensual; ?></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-start-success py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span><span style="color: rgb(159, 34, 65);">solicitudes del año</span></span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span><?php echo $Numregistrosanual; ?></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="far fa-calendar-times fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- Start: Chart -->
-                    <div class="row">
-                        <div class="col-lg-11 col-xl-4 col-xxl-12 offset-lg-1 offset-xxl-0">
-                            <div class="card shadow mb-4">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">TIPOS DE SOLICITUDES DEL AÑO</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Vino&quot;,&quot;Llamada&quot;,&quot;Whatsapp&quot;,&quot;Email&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Datos&quot;,&quot;backgroundColor&quot;:[&quot;#9f2241&quot;,&quot;#235b4e&quot;,&quot;#bca986&quot;,&quot;rgb(136,139,141)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;<?php echo $visitsVino ?>&quot;,&quot;<?php echo $visitsLlamada ?>&quot;,&quot;<?php echo $visitsWsp ?>&quot;,&quot;<?php echo $visitsEmail ?>&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas></div>
-                                    <div class="text-center small mt-4"><span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;Vino</span><span class="me-2"><i class="fas fa-circle text-success"></i>&nbsp;Llamada</span><span class="me-2"><i class="fas fa-circle text-info" style="border-color: #bca986;color: #bca986;--bs-info: #BCA986;--bs-info-rgb: 188,169,134;"></i>&nbsp;Whatsapp</span><span class="me-2"><i class="fas fa-circle text-primary" style="--bs-primary: #888B8D;--bs-primary-rgb: 136,139,141;"></i>&nbsp;Email</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End: Chart -->
                 </div>
             </div>
             <footer class="bg-white sticky-footer">
@@ -187,10 +182,81 @@ include('assets/php/FechasYcontadores.php');
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+    <script >
+    $(document).ready(function() {
+    $('#table').DataTable({
+        ordering: false,
+        info: false,
+        language: {
+            url: 'assets/DataTables/es-ES.json'
+        },
+        "bAutoWidth": false,
+        processing: true,
+        serverSide: true,
+        sAjaxSource: 'assets/src/server/serversideBien.php',
+        "columnDefs": [{
+            "targets": -1,
+            "defaultContent": "<div class='row'> <button class='btn btn-warning btn-sm btnEditar col-6' data-toggle='tooltip>< class='material-icons'><i class='bi bi-pencil-square'></i></button><button class='btn btn-danger btn-sm btnEliminar col-6' data-toggle='tooltip>< class='material-icons'><i class='bi bi-trash'></i></button></div></div>",
+        }],
+
+        order: [
+            [1, 'asc']
+        ],
+
+    });
+});
+
+    $(document).on("click", ".btnEditar", function() {
+        fila = $(this).closest("tr");
+        id = fila.find('td:eq(0)').text();
+
+        $.ajax({
+            // url: "seguimiento.php",
+            url: "assets/php/tabla/editr.php",
+            type: "POST",
+            datatype: "json",
+            data: {
+                valor: id
+            },
+
+        }).done(function(msg) {
+            window.location.href = "assets/php/tabla/editr.php?seg=" + id;
+            // window.location.href = "seguimiento.php";
+            // alert("id  "  + id)
+        });
+
+    });
+
+    $(document).on("click", ".btnEliminar", function() {
+        fila = $(this).closest("tr");
+        id = fila.find('td:eq(0)').text();
+
+        $.ajax({
+            url: "assets/php/tabla/EliminarRegistro.php",
+            type: "POST",
+            datatype: "json",
+            data: {
+                eliminar: id
+            },
+        }).done(function(msg) {
+            window.location.href = "tabla.php";
+
+        });
+
+    });
+
+
+
+
+
+    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="assets/js/script.min.js"></script>
+    
 </body>
 
 </html>
