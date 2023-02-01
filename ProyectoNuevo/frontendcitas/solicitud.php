@@ -141,15 +141,17 @@
                                         <div class="col-lg-12">
                                             <div class="p-5">
                                                 <div class="text-center"></div>
-                                                <form class="user">
-                                                    <div class="mb-3"><label class="form-label">Tipo de atención:</label><select class="form-select form-control-user" name="atencion" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;">
+                                                <form action="assets/php/registerAudiencia.php"  method="$_POST" class="user">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Tipo de atención:</label><select class="form-select form-control-user" name="atencion" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;">
                                                             <optgroup label="Tipo de atención">
                                                                 <option value="Vino">Vino</option>
                                                                 <option value="Llamada">Llamada</option>
                                                                 <option value="Whatsapp">Whatsapp</option>
                                                                 <option value="Email">Correo electrónico</option>
                                                             </optgroup>
-                                                        </select></div>
+                                                        </select>
+                                                    </div>
                                                     <div class="row mb-3"><label class="form-label">Nombre:</label>
                                                         <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" placeholder="Nombres" name="nombres"></div>
                                                         <div class="col-sm-6"><input class="form-control form-control-user" type="text" placeholder="Apellidos" name="apellidos"></div>
