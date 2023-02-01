@@ -22,13 +22,13 @@ if (isset($_SESSION['rol'])) {
     }
 }
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = $_POST['username'];
+if (isset($_POST['correo']) && isset($_POST['password'])) {
+    $correo = $_POST['correo'];
     $password = $_POST['password'];
 
     $db = new Database();
-    $query = $db->connect()->prepare('SELECT * FROM usuarios WHERE username = :username AND password = :password');
-    $query->execute(['username' => $username, 'password' => $password]);
+    $query = $db->connect()->prepare('SELECT * FROM usuarios WHERE correo = :correo AND password = :password');
+    $query->execute(['correo' => $correo, 'password' => $password]);
 
     $row = $query->fetch(PDO::FETCH_NUM);
 
@@ -38,7 +38,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['rol'] = $rol;
         $_SESSION['nombre'] =$row[1];
         $_SESSION['apellido'] =$row[2];
-        $_SESSION['username'] =$row[3];
+        $_SESSION['correo'] =$row[3];
         switch ($rol) {
             case 1:
                 header('location: inicio.php');
@@ -88,8 +88,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bienvenido</h4>
                                     </div>
-                                    <form class="user" method="POST"    >
-                                        <div class="mb-3"><input class="form-control form-control-user" type="text" id="usuarioLogin" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="username"></div>
+                                    <form class="user" method="POST">
+                                        <div class="mb-3"><input class="form-control form-control-user" type="text" id="usuarioLogin" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="correo"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Escribe tu contraseña" name="password"></div>
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small">

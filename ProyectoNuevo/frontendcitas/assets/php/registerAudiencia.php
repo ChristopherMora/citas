@@ -21,10 +21,10 @@ $sql = "INSERT INTO registros(Fecha,contacto,nombre_completo, Telefono, Asunto, 
 $query = mysqli_query($conn,$sql);
 
 if($query){
-    header('location: index.php');
+    header('location: ../../inicio.php');
     // echo $sql;
 }else{
-    header('location: index.php');
+    header('location: ../../inicio.php');
     // echo $sql;
 }
 
