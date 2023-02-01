@@ -54,7 +54,6 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
         echo "Nombre de usuario o contraseña incorrecto";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +87,7 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bienvenido</h4>
                                     </div>
-                                    <form class="user" method="POST">
+                                    <form class="user" method="POST"    >
                                         <div class="mb-3"><input class="form-control form-control-user" type="text" id="usuarioLogin" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="correo"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Escribe tu contraseña" name="password"></div>
                                         <div class="mb-3">
