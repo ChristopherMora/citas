@@ -1,22 +1,42 @@
 <?php
-
-include ('../conexion.php');
 date_default_timezone_set('America/Mexico_City');
+include ('../conexion.php');
 
 //coregir que sea con fecha de mexico
- $month = date("m");
- '<br>';
+$month = date("m");
  $year = date("Y");
 $sql = "SELECT * FROM registros WHERE YEAR(Fecha) = $year";
 $sql1 = "SELECT * FROM registros WHERE MONTH(Fecha) = $month";
 
+$cantidadVino = "SELECT COUNT(*) as totalVino FROM registros WHERE contacto = 'Vino'";
+$resultVino = mysqli_query($conn, $cantidadVino);
+if (mysqli_num_rows($resultVino) > 0) {
+    $row = mysqli_fetch_assoc($resultVino);
+    echo $visitsVino = $row["totalVino"];
+}
+$cantidadLlamada = "SELECT COUNT(*) as totalLlamada FROM registros WHERE contacto = 'Llamada'";
+$resultLlamada = mysqli_query($conn, $cantidadLlamada);
+if (mysqli_num_rows($resultLlamada) > 0) {
+    $row = mysqli_fetch_assoc($resultLlamada);
+    echo $visitsLlamada = $row["totalLlamada"];
+}
+$cantidadWsp = "SELECT COUNT(*) as totalWsp FROM registros WHERE contacto = 'Whatsapp'";
+$resultWsp = mysqli_query($conn, $cantidadWsp);
+if (mysqli_num_rows($resultWsp) > 0) {
+    $row = mysqli_fetch_assoc($resultWsp);
+    echo $visitsWsp = $row["totalWsp"];
+}
+$cantidadVino = "SELECT COUNT(*) as total FROM registros WHERE contacto = 'Email'";
+$resultVino = mysqli_query($conn, $cantidadVino);
+if (mysqli_num_rows($resultVino) > 0) {
+    $row = mysqli_fetch_assoc($resultVino);
+    echo $visits = $row["total"];
+}
 $result = mysqli_query($conn, $sql);
 $result1 = mysqli_query($conn, $sql1);
 $Numregistrosanual = mysqli_num_rows($result);
 $Numregistrosmensual = mysqli_num_rows($result1);
-echo $Numregistrosanual;
- "<br>";
- echo  $Numregistrosmensual;
+
 mysqli_close($conn);
 
 ?>
