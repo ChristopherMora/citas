@@ -1,7 +1,6 @@
 <?php
 include('conexion.php');
 
-// $fecha = $_POST['fecha'];
 $atencion = $_POST['atencion'];
 $nombres = $_POST['nombres'];
 $apellidos = $_POST['apellidos'];
@@ -14,7 +13,7 @@ $email = $_POST['email'];
 
 $nombre_completo = $nombres." ".$apellidos;
 
-date_default_timezone_get("	America/Mexico_City");
+date_default_timezone_set('America/Mexico_City');
 $fecha = date('Y-m-d');
 $hora = date('H:i:s');
 $sql = "INSERT INTO registros(Fecha,contacto,nombre_completo, Telefono, Asunto, Observaciones, Atendio) VALUES ('$fecha','$atencion','$nombre_completo','$telefono','$asunto','$observaciones','$atendio')";

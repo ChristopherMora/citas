@@ -141,7 +141,7 @@
                                         <div class="col-lg-12">
                                             <div class="p-5">
                                                 <div class="text-center"></div>
-                                                <form action="assets/php/registerAudiencia.php"  method="$_POST" class="user">
+                                                <form action="assets/php/registerAudiencia.php"  method="POST" class="user">
                                                     <div class="mb-3">
                                                         <label class="form-label">Tipo de atención:</label><select class="form-select form-control-user" name="atencion" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;">
                                                             <optgroup label="Tipo de atención">
