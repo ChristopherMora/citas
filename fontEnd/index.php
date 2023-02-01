@@ -88,8 +88,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bienvenido</h4>
                                     </div>
-                                    <form class="user">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="text" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="username"></div>
+                                    <form class="user" method="POST"    >
+                                        <div class="mb-3"><input class="form-control form-control-user" type="text" id="usuarioLogin" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="username"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Escribe tu contraseña" name="password"></div>
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small">
