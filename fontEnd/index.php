@@ -1,3 +1,62 @@
+<?php
+include_once 'database.php';
+
+session_start();
+
+if (isset($_GET['cerrar_sesion'])) {
+    session_unset();
+    session_destroy();
+}
+
+if (isset($_SESSION['rol'])) {
+    switch ($_SESSION['rol']) {
+        case 1:
+            header('location: inicio.php');
+            break;
+
+        case 2:
+            header('location: inicio.php');
+            break;
+
+        default:
+    }
+}
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $db = new Database();
+    $query = $db->connect()->prepare('SELECT * FROM usuarios WHERE username = :username AND password = :password');
+    $query->execute(['username' => $username, 'password' => $password]);
+
+    $row = $query->fetch(PDO::FETCH_NUM);
+
+    if ($row == true) {
+        $rol = $row[5];
+
+        $_SESSION['rol'] = $rol;
+        $_SESSION['nombre'] =$row[1];
+        $_SESSION['apellido'] =$row[2];
+        $_SESSION['username'] =$row[3];
+        switch ($rol) {
+            case 1:
+                header('location: inicio.php');
+                break;
+
+            case 2:
+                header('location: inicio.php');
+                break;
+            default:
+        }
+    } else {
+        // no existe el usuario
+        echo "Nombre de usuario o contraseña incorrecto";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;--bs-secondary: #BCA986;--bs-secondary-rgb: 188,169,134;--bs-success: #235B4E;--bs-success-rgb: 35,91,78;--bs-body-color: #53565A;">
 

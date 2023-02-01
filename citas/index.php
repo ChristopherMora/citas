@@ -40,7 +40,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['apellido'] =$row[2];
         $_SESSION['username'] =$row[3];
         switch ($rol) {
-            case 1:
+            case 1: 
                 header('location: inicio.php');
                 break;
 
