@@ -33,7 +33,7 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
     $row = $query->fetch(PDO::FETCH_NUM);
 
     if ($row == true) {
-        $rol = $row[5];
+        $rol = $row[7];
         echo 'correcto';
         $_SESSION['rol'] = $rol;
         $_SESSION['nombre'] = $row[1];
