@@ -89,13 +89,13 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                                         <h4 class="text-dark mb-4">Bienvenido</h4>
                                     </div>
                                     <form class="user">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="email"></div>
+                                        <div class="mb-3"><input class="form-control form-control-user" type="text" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="username"></div>
                                         <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Escribe tu contraseña" name="password"></div>
                                         <div class="mb-3">
                                             <div class="custom-control custom-checkbox small">
                                                 <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Recuérdame</label></div>
                                             </div>
-                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: #9f2241;">Acceder</button>
+                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: #9f2241;" onclick="guardarUsuario()" >Acceder</button>
                                         <hr>
                                     </form>
                                     <div class="text-center"><a class="small" href="forgot-password.html">¿Olvidaste tu contraseña?</a></div>
@@ -109,6 +109,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
     <script src="assets/js/script.min.js"></script>
 </body>
 
