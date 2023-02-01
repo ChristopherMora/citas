@@ -1,10 +1,69 @@
+<?php
+include_once 'src/Login/database.php';
+
+session_start();
+
+if (isset($_GET['cerrar_sesion'])) {
+    session_unset();
+    session_destroy();
+}
+
+if (isset($_SESSION['rol'])) {
+    switch ($_SESSION['rol']) {
+        case 1:
+            header('location: inicio.php');
+            break;
+
+        case 2:
+            header('location: inicio.php');
+            break;
+
+        default:
+    }
+}
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $db = new Database();
+    $query = $db->connect()->prepare('SELECT * FROM usuarios WHERE username = :username AND password = :password');
+    $query->execute(['username' => $username, 'password' => $password]);
+
+    $row = $query->fetch(PDO::FETCH_NUM);
+
+    if ($row == true) {
+        $rol = $row[5];
+
+        $_SESSION['rol'] = $rol;
+        $_SESSION['nombre'] =$row[1];
+        $_SESSION['apellido'] =$row[2];
+        $_SESSION['username'] =$row[3];
+        switch ($rol) {
+            case 1:
+                header('location: inicio.php');
+                break;
+
+            case 2:
+                header('location: inicio.php');
+                break;
+            default:
+        }
+    } else {
+        // no existe el usuario
+        echo "Nombre de usuario o contraseña incorrecto";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
-<html lang="es-mx" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;--bs-secondary: #691C32;--bs-secondary-rgb: 105,28,50;--bs-info: #235B4E;--bs-info-rgb: 35,91,78;--bs-success: #10312B;--bs-success-rgb: 16,49,43;--bs-warning: #d9bb1f;--bs-warning-rgb: 217,187,31;">
+<html lang="en" style="--bs-primary: #9F2241;--bs-primary-rgb: 159,34,65;--bs-secondary: #BCA986;--bs-secondary-rgb: 188,169,134;--bs-success: #235B4E;--bs-success-rgb: 35,91,78;--bs-body-color: #53565A;">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Registro de audiencias</title>
+    <title>Login - Brand</title>
     <link rel="icon" type="image/png" sizes="16x18" href="assets/img/LOGO16.png">
     <link rel="icon" type="image/png" sizes="32x36" href="assets/img/LOGO32.png">
     <link rel="icon" type="image/png" sizes="180x203" href="assets/img/LOGO180.png">
@@ -14,104 +73,43 @@
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-<body>
-    <!-- Start: Navbar Right Links (Dark) -->
-    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3" style="background: var(--bs-secondary);border-color: var(--bs-secondary);">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span style="font-weight: bold;"><img src="assets/img/LOGO32.png" style="margin: 0;margin-top: 0;margin-right: 8px;">REGISTRO DE SOLICITUD DE AUDICENCIAS</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-5"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-5">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">REGISTRO NUEVO</a></li>
-                    <li class="nav-item"><a class="nav-link" href="table.php">LISTA DE SOLICITUDES</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reporte.php">GENERAR REPORTE</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav><!-- End: Navbar Right Links (Dark) -->
-    <!-- Start: Contact Form Basic -->
-    <section class="py-4 py-xl-5">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
-                    <div class="card mb-5">
-                        <div class="card-body p-sm-5">
-                            <h2 class="text-center mb-4" style="font-weight: bold;font-size: 18PX;">REGISTRAR SOLICITUD DE AUDIENCIA</h2>
-                            <form method="post" style="padding-right: 0px;padding-top: 0px;" action="register.php">
-                                <div class="mb-3"><label class="form-label">Tipo de atención:</label><select class="form-select" name="atencion">
-                                        <optgroup label="Tipo de Solicitud">
-                                            <option value="Vino">Vino</option>
-                                            <option value="Llamada">Llamada</option>
-                                            <option value="Whatsapp">Whatsapp</option>
-                                            <option value="email">Correo electrónico</option>
-                                        </optgroup>
-                                    </select></div>
-                                <div class="mb-3"><label class="form-label">Nombres:</label><input class="form-control" type="text" name="nombres"></div>
-                                <div class="mb-3"><label class="form-label">Apellidos:</label><input class="form-control" type="text" name="apellidos"></div>
-                                <div class="mb-3"><label class="form-label">Teléfono:</label><input class="form-control" type="text" name="telefono"></div>
-                                <div class="mb-3"><label class="form-label">Asunto:</label><input class="form-control" type="text" name="asunto"></div>
-                                <div class="mb-3"><label class="form-label">Observaciones:</label><input class="form-control" type="text" name="observaciones"></div>
-                                <div class="mb-3"><label class="form-label">Atendió:</label><input class="form-control" type="text" name="atendio"></div>
-                                <div><button class="btn btn-primary d-block w-100" type="submit">Enviar</button></div>
-                            </form>
+<body class="bg-gradient-primary" style="background: var(--bs-gray-900);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-flex">
+                                <div class="flex-grow-1 bg-login-image" style="background: url(&quot;assets/img/logoseduclogin.png&quot;) center no-repeat;"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text-dark mb-4">Bienvenido</h4>
+                                    </div>
+                                    <form class="user">
+                                        <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Escribe tu Email" name="email"></div>
+                                        <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Escribe tu contraseña" name="password"></div>
+                                        <div class="mb-3">
+                                            <div class="custom-control custom-checkbox small">
+                                                <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Recuérdame</label></div>
+                                            </div>
+                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: #9f2241;">Acceder</button>
+                                        <hr>
+                                    </form>
+                                    <div class="text-center"><a class="small" href="forgot-password.html">¿Olvidaste tu contraseña?</a></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- End: Contact Form Basic -->
-    <!-- Start: Footer Dark -->
-    <footer class="text-center bg-dark">
-            <div class="container text-white py-4 py-lg-5">
-                <p class="mb-0" style="color: #bca986;">Copyright © 2023 SECRETARÍA DE EDUCACIÓN DEL ESTADO DE CAMPECHE</p>
-            </div>
-        </footer><!-- End: Footer Dark -->
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
 </body>
-
-<script>
-    $(document).ready(function() {
-        $('#table').DataTable({
-            ordering: false,
-            info: false,
-            language: {
-                url: 'DataTables/es-ES.json'
-            },
-            "bAutoWidth": false,
-            processing: true,
-            serverSide: true,
-            sAjaxSource: 'server/serversideBien.php',
-            columnsDefs: [{
-                data: null
-            }],
-
-
-            columnDefs: [{
-                targets: 0,
-                checkboxes: {
-                    selectRow: true
-                }
-            }],
-            select: {
-                style: 'multi'
-            },
-            order: [
-                [1, 'asc']
-            ]
-
-        });
-    });
-</script>
-<script>
-    var today = new Date();
-
-
-    var now = today.toLocaleDateString('en-US');
-    console.log(now);
-    document.getElementById('fecha').value = now;
-    var hoy = new Date();
-    var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
-    console.log(hora);
-    document.getElementById('hora').value = hora;
-</script>
 
 </html>
