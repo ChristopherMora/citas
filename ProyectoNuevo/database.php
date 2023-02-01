@@ -11,8 +11,8 @@ class Database{
     public function __construct(){
         $this->host = 'localhost';
         $this->db = 'regis-report';
-        $this->user = 'loco';
-        $this->password = 'loco';
+        $this->user = 'root';
+        $this->password = '';
         $this->charset = 'utf8mb4';
     }
 
