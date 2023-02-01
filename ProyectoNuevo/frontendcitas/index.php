@@ -33,7 +33,7 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
     $row = $query->fetch(PDO::FETCH_NUM);
 
     if ($row == true) {
-        $rol = $row[5];
+        $rol = $row[7];
         echo 'correcto';
         $_SESSION['rol'] = $rol;
         $_SESSION['nombre'] = $row[1];
@@ -106,10 +106,11 @@ if (isset($_POST['correo']) && isset($_POST['password'])) {
             </div>
         </div>
     </div>
+    <script src="assets/js/localEstorage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.min.js"></script>
-    <script src="assets/js/localEstorage.js"></script>
+    
 </body>
 
 </html>
